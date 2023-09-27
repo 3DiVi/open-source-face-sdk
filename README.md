@@ -1,7 +1,7 @@
 
-## Cvartel Open Source Face SDK
+## 3DiVi Open Source Face SDK
 
-[Cvartel Face SDK](sdk/) is an open-source library that analyzes images to identify human faces, bodies and skeletal joints. The library is top rated in NIST FRVT with 99.62% face recognition accuracy and is available for C++, Python, C#, and Java programming languages on Windows and Linux.
+[3DiVi Face SDK](sdk/) is an open-source library that analyzes images to identify human faces, bodies and skeletal joints. The library is top rated in NIST FRVT with 99.62% face recognition accuracy and is available for C++, Python, C#, and Java programming languages on Windows and Linux.
 It contains [Open Model Improvement and Domain Adaptation Scripts](open_midas/) which allows you to improve model performance for your specific tasks.
 
 |Face Detection and Landmarks|Face Recognition|Face Attributes|
@@ -19,8 +19,7 @@ See the list of [available models](sdk/).
 
 ## Open MIDAS
 
-Beside SDK this repository provides Open Model Improvement and Domain Adaptation Scripts. This toolkit contains the set of techniques and pipelines for models retraining and generalization improvement.  
-Check out [BatchNorms training technique](open_midas/README.md) - our first published method (very easy to use fine-tune technique, +2%TPR@1e-6 for pretrained models form insightface repo).
+Beside SDK this repository provides Open Model Improvement and Domain Adaptation Scripts. This toolkit contains the set of techniques and pipelines for models retraining and generalization improvement. 
 
 ## Getting Started 
 * Learn how to [install the library](docs/getting_started.md)
@@ -38,4 +37,4 @@ Feel free  to open an issue if you want to
 ## License
 
 [Affero GPLv3](http://www.gnu.org/licenses/agpl-3.0.html)
-Commercial-friendly licensing available. Contact us at info@cvartel.com.
+Commercial-friendly licensing available. Contact us at info@3divi.com.
