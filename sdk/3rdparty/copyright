@@ -1,0 +1,39 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Cvartel
+Source: https://github.com/Cvartelinc//Open-Source-Face-SDK
+Files: *
+Copyright: 2022 Cvartel <info@cvartel.com>
+License: AGPL-3+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  .
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+  .
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Files: sdk/data/models/mesh_fitter.onnx  
+Copyright: 2022 The MediaPipe Authors. 
+License: Apache License 2.0
+
+Files: sdk/data/models/face.onnx
+Copyright: 2022 The YOLOv5 Authors. 
+License: GNU General Public License v3.0
+
+
+Files: sdk/3rdparty/onnxruntime/*
+Copyright:  2022 Microsoft Corporation. 
+License: MIT License
+
+Files: sdk/3rdparty/OpenCV/*
+Copyright: 2022, Intel Corporation 
+License: Apache License 2.0
+
+Files: sdk/3rdparty/nlohmann/*
+Copyright: 2013-2019 Niels Lohmann <http://nlohmann.me> 
+License:  MIT License

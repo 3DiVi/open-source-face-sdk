@@ -1,0 +1,152 @@
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.15.1/dist/ort.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opencv.js-webassembly@4.2.0/opencv.min.js"></script>
+
+<script>
+  const detectionModelURL = 'face_detector/face.onnx';
+  const nmsModelURL = 'face_detector/nms.onnx';
+
+  const modelInputShape = [1, 3, 384, 640];
+  const topk = 100;
+  const iouThreshold = 0.5;
+  const nmsThreshold = 0.0;
+  const confThreshold = 0.3;
+
+  var detectorInferenceSession;
+  var nmsInferenceSession;
+
+  async function initialise_models(){
+    detectorInferenceSession = await ort.InferenceSession.create(detectionModelURL);
+    nmsInferenceSession = await ort.InferenceSession.create(nmsModelURL);
+  };
+  
+  function renderBoxes(canvas, boxes){
+    const ctx = canvas.getContext("2d");
+    boxes.forEach((box) => {
+      const color = "#FF3838";
+      const [x1, y1, width, height] = box.bounding;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = Math.max(Math.min(ctx.canvas.width, ctx.canvas.height) / 200, 2.5);
+      ctx.strokeRect(x1, y1, width, height);
+    });
+  };
+
+  async function detectImage(canvas, topk, iouThreshold, 
+                             nmsThreshold, confThreshold, inputShape){
+    const modelWidth = inputShape[3];
+    const modelHeight = inputShape[2];
+    // read, pad and resize image for inference
+    const mat = cv.imread(canvas);
+    var matC3 = new cv.Mat(mat.rows, mat.cols, cv.CV_8UC3);
+    cv.cvtColor(mat, matC3, cv.COLOR_RGBA2BGR);
+
+    var scale = 1;
+    var dh = 0;
+    var dw = 0;
+    if (modelHeight / modelWidth > mat.rows / mat.cols){
+      scale = mat.cols / modelWidth;
+      dh = (mat.cols * modelHeight) / modelWidth - mat.rows;
+    }else{
+      scale = mat.rows / modelHeight;
+      dw = (mat.rows * modelWidth) / modelHeight - mat.cols;
+    }
+    var top = Math.floor(dh / 2);
+    var bottom = Math.floor(dh - top);
+    var left = Math.floor(dw / 2);
+    var right = Math.floor(dw - left);
+    var matPad = new cv.Mat();
+    cv.copyMakeBorder(matC3, matPad, top, bottom, left, right, cv.BORDER_CONSTANT, [0, 0, 0, 127]);
+    const input = cv.blobFromImage(
+        matPad,
+        1 / 255.0,
+        new cv.Size(modelWidth, modelHeight),
+        new cv.Scalar(0, 0, 0),
+        true,
+        false
+    );
+    // inference and NMS
+    const tensor = new ort.Tensor("float32", input.data32F, inputShape);
+    const config = new ort.Tensor("float32", new Float32Array([topk, iouThreshold, nmsThreshold]));
+    const { output } = await detectorInferenceSession.run({ images: tensor });
+    const { selected_idx } = await nmsInferenceSession.run({ detection: output, config: config });
+    // postprocess results
+    const boxes = [];
+    selected_idx.data.forEach((idx) => {
+      const data = output.data.slice(idx * output.dims[2], (idx + 1) * output.dims[2]);
+      const [x, y, w, h] = data.slice(0, 4);
+      const confidence = data[4];
+
+      if (confidence >= confThreshold)
+      boxes.push({
+        label: 'person',
+        probability: confidence,
+        bounding: [
+          Math.floor((x - 0.5 * w) * scale) - left,
+          Math.floor((y - 0.5 * h) * scale) - top,
+          Math.floor(w * scale),
+          Math.floor(h * scale),
+        ],
+      });
+    });
+
+    renderBoxes(canvas, boxes);
+
+    mat.delete();
+    matC3.delete();
+    matPad.delete();
+    input.delete();
+};
+
+initialise_models();
+</script>
+
+<div className="App">
+    <div className="header">
+      <h1>Cvartel Open Source Face SDK</h1>
+      <p>
+        Face Detection in browser example
+      </p>
+    </div>
+    <div className="buttons" style="padding:25px;">
+        <input type="file" id="image_form" accept="image/*" style="display:none"/>
+        <button type="button">
+            <label for="image_form" style="cursor: pointer;"> Open local image</label>
+        </button>
+        <button id="close_btn">
+            Close image
+        </button>
+    </div>
+    <div className="content" style="padding:25px;">
+        <canvas id="canvas" width=100 height=100></canvas>
+    </div>
+</div>
+
+<script>
+  let imgInput = document.getElementById('image_form');
+  imgInput.addEventListener('change', async function(e) {
+    if (e.target.files) {
+      let imageFile = e.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(imageFile);
+      reader.onloadend = function (e) {
+        var uploadImage = new Image();
+        uploadImage.src = e.target.result;
+        uploadImage.onload = function(ev) {
+          const canvasTag = document.getElementById("canvas");
+          var context = canvasTag.getContext("2d");
+          canvasTag.width = uploadImage.width;
+          canvasTag.height = uploadImage.height;
+          context.drawImage(uploadImage, 0, 0);
+          let imgData = canvasTag.toDataURL("image/jpeg", 0.75);
+          detectImage(canvasTag, topk, iouThreshold, nmsThreshold, confThreshold, modelInputShape);
+        }
+      }
+    }
+  });
+
+  let closeInput = document.getElementById('close_btn');
+  closeInput.addEventListener("click", function(e){
+    canvasTag = document.getElementById('canvas');
+    context = canvasTag.getContext("2d")
+    context.clearRect(0,0, canvasTag.offsetWidth, canvasTag.offsetHeight)
+  });
+</script>
