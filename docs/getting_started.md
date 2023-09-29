@@ -130,5 +130,5 @@ Python 3.10.8 or higher
 ### Installation 
 Clone this repo and run following command from _open_midas_ folder to install required dependencies
 ```bash
-pip3 install -r requiremnts.txt
+pip3 install -r requirements.txt
 ```
