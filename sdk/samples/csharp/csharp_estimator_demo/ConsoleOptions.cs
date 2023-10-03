@@ -10,7 +10,7 @@ namespace ApiTest
 {
     public class ConsoleOptions
     {
-        [Option("mode", Default = "detection", HelpText = "Mode")]
+        [Option("mode", Default = "all", HelpText = "Mode")]
         public string Mode { get; set; }
 
         [Option("input_image", Required = true, HelpText = "Input image 1")]

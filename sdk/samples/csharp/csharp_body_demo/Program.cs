@@ -137,7 +137,7 @@ namespace ApiTest
 
             // create input/output data Context with image Context
             Dictionary<object, object> imgCtx = new Dictionary<object, object>();
-            MatToBsm(ref imgCtx, input_image); fill Context with image
+            MatToBsm(ref imgCtx, input_image);
             Context ioData = service.CreateContext(new Dictionary<object, object> { { "image", imgCtx } });
             
             ///////////Detector////////////////
