@@ -24,7 +24,7 @@ __UNIT_TYPES = {
     "POSE_ESTIMATOR_LABEL": ["data/models/top_down_hpe/label_map_keypoints.txt"],
 }
 
-__BASE_URL = "https://download.cvartel.com/facesdk/archives/artifacts/models/"
+__BASE_URL = "https://download.3divi.com/facesdk/archives/artifacts/models/"
 
 
 def make_model_paths(path_to_dir: str, unit_type: str) -> List[str]:

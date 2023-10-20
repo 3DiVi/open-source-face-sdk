@@ -42,7 +42,7 @@ Face SDK can be successfully used in various domains and business cases, such as
 |Java           |:heavy_check_mark:|:heavy_check_mark:|
 |JavaScript     |:heavy_check_mark:|:heavy_check_mark:|
 
-## Run C++, Python adn C# Demo Samples
+## Run C++, Python and C# Demo Samples
 
 There are 3 demo samles for C++, Python and C# API
 
@@ -59,16 +59,16 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 
 * С++ (Windows): 
 ```bash
-./face_demo.exe --mode detection --input_image <path to image>
+./face_demo.exe --sdk_path .. --mode detection --input_image ../../../test_images/face.jpg  
 ```
 * С++ (Linux): 
 ```bash
-LD_LIBRARY_PATH=../lib ./face_demo --mode detection --input_image <path to image>
+LD_LIBRARY_PATH=../lib ./face_demo --sdk_path .. --mode landmarks --input_image ../../../test_images/landmarks.jpeg
 ```
 
 * Python: 
 ```bash
-python3 face_demo.py --mode detection --input_image <path to image>
+python3 face_demo.py --sdk_path .. --mode recognition --input_image ../../../test_images/facerec_1.jpg --input_image2 ../../../test_images/facerec_2.jpeg
 ```
 #### Sample modes
 * **detection** - Detects the face on the input image visualize bounding box. 
@@ -88,16 +88,16 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 
 * С++ (Windows): 
 ```bash
-./estimator_demo.exe --mode all --input_image <path to image>
+./estimator_demo.exe --sdk_path .. --mode all --input_image ../../../test_images/face_attributes.jpg
 ```
 * С++ (Linux): 
 ```bash
-LD_LIBRARY_PATH=../lib ./estimator_demo --mode all --input_image <path to image>
+LD_LIBRARY_PATH=../lib ./estimator_demo --sdk_path .. --mode age --input_image ../../../test_images/age_gender.jpg
 ```
 
 * Python: 
 ```bash
-python3 estimator_demo.py --mode all --input_image <path to image>
+python3 estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_images/mask_glasses.jpeg
 ```
 #### Sample modes
 * **all** - Launch all modes.
@@ -120,16 +120,16 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 
 * С++ (Windows): 
 ```bash
-./body_demo.exe --mode detection --input_image <path to image>
+./body_demo.exe --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
 * С++ (Linux): 
 ```bash
-LD_LIBRARY_PATH=../lib ./body_demo --mode detection --input_image <path to image>
+LD_LIBRARY_PATH=../lib ./body_demo --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
 
 * Python: 
 ```bash
-python3 body_demo.py --mode detection --input_image <path to image>
+python3 body_demo.py --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
 #### Sample modes
 * **detection** - Detects human body on the input image visualize bounding box. .
@@ -144,7 +144,7 @@ Also there is minimal sample for Java with only face detector block.
 
  You can run it from _sdk/samples/java_ with command  
 ```bash
-java -classpath ./bin com.face_detector_demo.face_detector_demo  path_to_image ../../build/make-install/
+java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../../test_images/face.jpg ../../build/make-install/
 ```
 
 ### JavaScript Sample
@@ -221,8 +221,8 @@ public datasets (such as OpenImages, FractalDB-1k, NABirds, etc.). In total, we 
 
 4. Evaluate all saved models due training and select best one
 
-5. [optional] Visualise changes of BatchNorm parameters via [visualisation_utils.py](bn_finetune/visualisation_utils.py)
-You can find our example at [visualisation example](bn_finetune/visualisation_example.ipynb).
+5. [optional] Visualise changes of BatchNorm parameters via [visualisation_utils.py](../open_midas/bn_finetune/visualisation_utils.py)
+You can find our example at [visualisation example](../open_midas/bn_finetune/visualisation_example.ipynb).
 
 
 ## 2. Quality Assessment Algorithms(QAA)
@@ -247,7 +247,7 @@ As you can see, TPRs have increased on every FPR.
 
 ### How to train your own QAA?
 
-You can check [QAA model training notebook example](qaa/example.ipynb). 
+You can check [QAA model training notebook example](../open_midas/qaa/example.ipynb). 
 Feel free to use your face recognition model, dataset or feature extraction method.
 You must complete these steps:
 
@@ -284,7 +284,7 @@ clustering of face images.
 
 It's a feature that allows you to easily filter face datasets without the hyperparameter selection, providing finer clustering result than traditional methodologies.
 
-You can find example of glint360k filtering in our jupyter notebook [example](dataset_filtering/example.ipynb).
+You can find example of glint360k filtering in our jupyter notebook [example](../open_midas/dataset_filtering/example.ipynb).
 
 ### Results
 
@@ -296,11 +296,11 @@ Below, you'll find comparison of clustering using DBSCAN and our algorithm, perf
 
 | DBSCAN  | Proposed algorithm | 
 | ------- | ------------------ |
-| ![image](dataset_filtering/pictures/80_dbscan.png) | ![image](dataset_filtering/pictures/80_own.png) |
-| ![image](dataset_filtering/pictures/9375_dbscan.png) | ![image](dataset_filtering/pictures/9375_own.png) |
-| ![image](dataset_filtering/pictures/42186_dbscan.png) | ![image](dataset_filtering/pictures/42186_own.png) |
-| ![image](dataset_filtering/pictures/44032_dbscan.png) | ![image](dataset_filtering/pictures/44032_own.png) |
-| ![image](dataset_filtering/pictures/44817_dbscan.png) | ![image](dataset_filtering/pictures/44817_own.png) |
+| ![image](../open_midas/dataset_filtering/pictures/80_dbscan.png) | ![image](../open_midas/dataset_filtering/pictures/80_own.png) |
+| ![image](../open_midas/dataset_filtering/pictures/9375_dbscan.png) | ![image](../open_midas/dataset_filtering/pictures/9375_own.png) |
+| ![image](../open_midas/dataset_filtering/pictures/42186_dbscan.png) | ![image](../open_midas/dataset_filtering/pictures/42186_own.png) |
+| ![image](../open_midas/dataset_filtering/pictures/44032_dbscan.png) | ![image](../open_midas/dataset_filtering/pictures/44032_own.png) |
+| ![image](../open_midas/dataset_filtering/pictures/44817_dbscan.png) | ![image](../open_midas/dataset_filtering/pictures/44817_own.png) |
 
 </details>
 
@@ -313,12 +313,12 @@ You can use FaceDatasetFiltering tool, follow steps below.
 Before anything else, align the faces in your dataset. We recommend following the face alignment procedure as in InsightFace. 
 You can refer to their face alignment utility script [here](https://github.com/deepinsight/insightface/blob/master/python-package/insightface/utils/face_align.py#L27) for a detailed implementation.
 
-This step is required in many approaches, including [QAA training example](qaa/example.ipynb). Glint360K is distributed with alignment already applied,
+This step is required in many approaches, including [QAA training example](../open_midas/qaa/example.ipynb). Glint360K is distributed with alignment already applied,
 so we skipped it during QAA training.
 
 #### 2. Load the Face Recognition Model
 
-To perform dataset filtering we suggest you to use [pretrained R200 from out repository](dataset_filtering/iresnet200_weigths.pth). If you want, you can try any other model.
+To perform dataset filtering we suggest you to use pretrained R200 from out repository. If you want, you can try any other model.
 
 #### 3. Load the Face Quality Assessment Model
 

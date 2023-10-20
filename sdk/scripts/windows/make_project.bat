@@ -31,7 +31,7 @@ if exist 3rdparty\build (
 
     @REM download opencv
     if not exist .\3rdparty\build\opencv.zip (
-        powershell -command "wget https://download.cvartel.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-windows-msvc-vc14-x86-64-install-dir.zip -O .\3rdparty\build\opencv.zip"
+        powershell -command "wget https://download.3divi.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-windows-msvc-vc14-x86-64-install-dir.zip -O .\3rdparty\build\opencv.zip"
     )
     if not exist .\3rdparty\build\opencv (
         powershell -command "Expand-Archive .\3rdparty\build\opencv.zip .\3rdparty\build\opencv"
@@ -40,7 +40,7 @@ if exist 3rdparty\build (
 
     @REM download pthread
     if not exist .\3rdparty\build\pthread.zip (
-        powershell -command "wget https://download.cvartel.com/facesdk/archives/artifacts/pthread/pthreads_windows_msvc_vc14_install_dir.zip -O .\3rdparty\build\pthread.zip"
+        powershell -command "wget https://download.3divi.com/facesdk/archives/artifacts/pthread/pthreads_windows_msvc_vc14_install_dir.zip -O .\3rdparty\build\pthread.zip"
     )
     if not exist .\3rdparty\build\pthread (
         powershell -command "Expand-Archive .\3rdparty\build\pthread.zip .\3rdparty\build\pthread"

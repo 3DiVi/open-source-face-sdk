@@ -22,7 +22,7 @@ rm onnxruntime-linux-x64-1.4.0.tgz
 
 # download opencv artifact
 
-wget https://download.cvartel.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-ubuntu14.04-x86-64-install-dir.zip -O opencv.zip --no-check-certificate
+wget https://download.3divi.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-ubuntu14.04-x86-64-install-dir.zip -O opencv.zip --no-check-certificate
 
 unzip -o -d opencv opencv.zip
 
@@ -30,7 +30,12 @@ rm opencv.zip
 
 cd ${PROJ_PATH}
 
-gdown https://drive.google.com/u/0/uc?id=162OXlEh_18TLI0denqNysnBAGE3l8F-N -O models.zip 
+if command -v gdown &> /dev/null
+then
+    gdown https://drive.google.com/u/0/uc?id=162OXlEh_18TLI0denqNysnBAGE3l8F-N -O models.zip 
+else
+    wget https://download.3divi.com/facesdk/archives/artifacts/models/models.zip
+fi
 
 unzip models.zip -d data/models
 

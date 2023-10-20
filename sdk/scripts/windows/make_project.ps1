@@ -15,8 +15,8 @@ $dest_3rdparty = ".\build\install\3rdparty"
 $source_3rdparty = ".\3rdparty\"
 
 $url_onnxruntime = "https://github.com/microsoft/onnxruntime/releases/download/v1.4.0/onnxruntime-win-x64-1.4.0.zip"
-$url_opencv = "https://download.cvartel.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-windows-msvc-vc14-x86-64-install-dir.zip"
-$url_pthread = "https://download.cvartel.com/facesdk/archives/artifacts/pthread/pthreads_windows_msvc_vc14_install_dir.zip"
+$url_opencv = "https://download.3divi.com/facesdk/archives/artifacts/opencv/POS_SDK/3-1-0/opencv-windows-msvc-vc14-x86-64-install-dir.zip"
+$url_pthread = "https://download.3divi.com/facesdk/archives/artifacts/pthread/pthreads_windows_msvc_vc14_install_dir.zip"
 function get_3rd_by_url {
 
     [CmdletBinding()]

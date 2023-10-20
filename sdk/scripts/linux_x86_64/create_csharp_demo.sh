@@ -42,3 +42,4 @@ cp -r csharp_${DEMO_NAME}_demo/bin/publish/* ./make-install/bin
 cp ./make-install/lib/libopen_source_sdk.so ./make-install/bin/
 
 echo "Done!"
+
