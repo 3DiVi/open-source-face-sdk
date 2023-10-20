@@ -5,11 +5,10 @@ MAJOR=$(echo "$(dotnet --version)" | awk '{split($0, result, "."); print result[
 MINOR=$(echo "$(dotnet --version)" | awk '{split($0, result, "."); print result[2]}')
 UBUNTU_VERSION=$(echo "$(lsb_release -rs)" | awk '{split($0, result, "."); print result[1]}')
 
-if [[ ${UBUNTU_VERSION} < 20 ]];
-then
-    OPENCV_RUNTIME=OpenCvSharp4.runtime.ubuntu.${UBUNTU_VERSION}.04-x64
-else
+if [[ ${UBUNTU_VERSION} == 20 ]]; then
     OPENCV_RUNTIME=OpenCvSharp4_.runtime.ubuntu.20.04-x64
+else
+    OPENCV_RUNTIME=OpenCvSharp4.runtime.ubuntu.${UBUNTU_VERSION}.04-x64
 fi
 
 mkdir -p build
@@ -33,7 +32,7 @@ dotnet sln csharp_${DEMO_NAME}_demo.sln add csharp_${DEMO_NAME}_demo/csharp_${DE
 cd csharp_${DEMO_NAME}_demo
 
 dotnet add package OpenCvSharp4
-dotnet add package ${OPENCV_RUNTIME}
+dotnet add package ${OPENCV_RUNTIME} --prerelease
 dotnet add package CommandLineParser
 
 dotnet publish --configuration Release --output bin/publish /p:AllowUnsafeBlocks=true
