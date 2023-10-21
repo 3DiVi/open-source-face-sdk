@@ -14,7 +14,7 @@ It contains [Open Model Improvement and Domain Adaptation Scripts](open_midas/) 
 |![face_detector](sdk/img_samples/doc/pose_estimation.png)|
 | Detect Human Bodies and Estimate Skeleton Keypoints| 
 
-See the list of [available models](sdk/).
+See the list of [available models](docs/user_manual.md#available-models).
 
 
 ## Open MIDAS
