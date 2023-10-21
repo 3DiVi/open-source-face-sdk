@@ -213,7 +213,7 @@ After that, go to _sdk/samples/java_ and make there _bin_ directory. Then, you c
 javac -sourcepath ../../src/java_api/src/ -d bin com/face_detector_demo/face_detector_demo.java 
 ```
 ```bash
-LD_LIBRARY_PATH=../../build/make-install/lib java -classpath ./bin com.face_detector_demo.face_detector_demo <path_to_image> ../../build/make-install
+LD_LIBRARY_PATH=../../build/make-install/lib java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install
 ```
 
 ### Build C#

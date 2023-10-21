@@ -107,7 +107,7 @@ python3 estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_
 
 * C# 
 ```bash
-./csharp_estimator_demo  --sdk_path .. --input_image --mode all --input_image ../../../test_images/face_attributes.jpg
+./csharp_estimator_demo  --sdk_path .. --mode all --input_image ../../../test_images/face_attributes.jpg
 ```
 #### Sample modes
 * **all** - Launch all modes.
@@ -143,7 +143,7 @@ python3 body_demo.py --sdk_path .. --mode detection --input_image ../../../test_
 ```
 * C# 
 ```bash
-./csharp_body_demo --sdk_path .. --input_image ../../../test_images/body.jpg --mode pose
+./csharp_body_demo --sdk_path .. --input_image ../../../test_images/body.jpg --mode detection
 ```
 
 #### Sample modes
@@ -159,7 +159,7 @@ Also there is minimal sample for Java with only face detector block.
 
  You can run it from _sdk/samples/java_ with command  
 ```bash
-java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../../test_images/face.jpg ../../build/make-install/
+java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install/
 ```
 
 ### JavaScript Sample
