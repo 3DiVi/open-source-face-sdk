@@ -70,6 +70,11 @@ LD_LIBRARY_PATH=../lib ./face_demo --sdk_path .. --mode landmarks --input_image 
 ```bash
 python3 face_demo.py --sdk_path .. --mode recognition --input_image ../../../test_images/facerec_1.jpg --input_image2 ../../../test_images/facerec_2.jpeg
 ```
+
+* С#: 
+```bash
+./csharp_face_demo --sdk_path .. --input_image ../../../test_images/facerec_1.jpg --mode detection
+```
 #### Sample modes
 * **detection** - Detects the face on the input image visualize bounding box. 
 * **landmarks** - Estimates face keypoints and visualize them.
@@ -98,6 +103,11 @@ LD_LIBRARY_PATH=../lib ./estimator_demo --sdk_path .. --mode age --input_image .
 * Python: 
 ```bash
 python3 estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_images/mask_glasses.jpeg
+```
+
+* C# 
+```bash
+./csharp_estimator_demo  --sdk_path .. --input_image --mode all --input_image ../../../test_images/face_attributes.jpg
 ```
 #### Sample modes
 * **all** - Launch all modes.
@@ -131,6 +141,11 @@ LD_LIBRARY_PATH=../lib ./body_demo --sdk_path .. --mode detection --input_image 
 ```bash
 python3 body_demo.py --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
+* C# 
+```bash
+./csharp_body_demo --sdk_path .. --input_image ../../../test_images/body.jpg --mode pose
+```
+
 #### Sample modes
 * **detection** - Detects human body on the input image visualize bounding box. .
 * **pose** - Estimates skeleton keypoints and visualize them. 

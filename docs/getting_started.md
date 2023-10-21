@@ -137,14 +137,15 @@ sudo apt install wget unzip
 sudo apt install python3 python3-pip libcanberra-gtk-module
 sudo apt install lsb-core
 
-# There might be problems with system python in ubuntu 16, thus we recomend to install Python 3.8. Follow instructions to make python 3/8 your system python3 interpreter.
+# There might be problems with system python in ubuntu 16.
+# Thus we recommend to install Python 3.8. Follow instructions to make python 3.8 your system python3 interpreter.
 sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev -y
 wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 tar -xf Python-3.8.0.tgz
 cd Python-3.8.0 && ./configure --enable-optimizations && make && sudo make install && cd ..
 
-pip install --upgrade pip setuptools wheel
-pip install urllib3==1.26.6
+pip3.8 install --upgrade pip setuptools wheel --user
+pip3.8 install urllib3==1.26.6 --user
 
 # Java API dependencies
 sudo apt install openjdk-8-jdk
@@ -227,7 +228,7 @@ For Windows
 For Linux
 * In _sdk_ folder run following cmd command to build csharp_face_demo for Windows
     ```bash
-    ./scripts/linux/create_sharp_demo.sh
+    ./scripts/linux_x86_64/create_csharp_demo.sh
     ```
 * This script builds `face` demo by default. To build `body` or `estimator` demo, just call the script with corresponding argument.
 
