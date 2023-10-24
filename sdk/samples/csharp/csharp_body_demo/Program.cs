@@ -214,10 +214,10 @@ namespace ApiTest
                     {
                         string key1 = bone.Key;
                         string key2 = bone.Value;
-                        int x1 = (int)(posesCtx[key1]["proj"][0].GetDouble() * image.Height);
-                        int y1 = (int)(posesCtx[key1]["proj"][1].GetDouble() * image.Width);
-                        int x2 = (int)(posesCtx[key2]["proj"][0].GetDouble() * image.Height);
-                        int y2 = (int)(posesCtx[key2]["proj"][1].GetDouble() * image.Width);
+                        int x1 = (int)(posesCtx[key1]["proj"][0].GetDouble() * image.Width);
+                        int y1 = (int)(posesCtx[key1]["proj"][1].GetDouble() * image.Height);
+                        int x2 = (int)(posesCtx[key2]["proj"][0].GetDouble() * image.Width);
+                        int y2 = (int)(posesCtx[key2]["proj"][1].GetDouble() * image.Height);
                         if (output == "yes")
                             Console.WriteLine($"Pose: x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}");
                         Cv2.Line(image, new Point(x1, y1), new Point(x2, y2), color, thickness);
