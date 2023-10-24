@@ -221,7 +221,7 @@ If you successfully built C++ API on previous steps, you can use builded library
 For Windows
 * In _sdk_ folder run following cmd command to build csharp_face_demo for Windows
     ```bash
-    .\scripts\windows\create_sharp_demo.bat
+    .\scripts\windows\create_csharp_demo.bat
     ```
 * This script builds `face` demo by default. To build `body` or `estimator` demo, just call the script with corresponding argument.
 
