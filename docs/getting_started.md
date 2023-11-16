@@ -186,29 +186,30 @@ For Linux:
 
     ```bash
     cd open-source-face-sdk/sdk
-    source scripts/linux_x86_64/build_sdk.sh    
+    ./scripts/linux_x86_64/build_sdk.sh    
     ```
 ### Build Python API 
-When you successfully built C++ API on previous step, you can install python_api (located in _build/make_install_ after library building) via the comand 
+When you successfully built C++ API on previous step, you can install python_api (located in _build/make-install_ after library building) via the comand 
 ```bash
 pip3 install <path_to_python_api_folder>
 ```
 Alternatively, you can use prebuilt pip packages to install Python API.  
 For Windows
 ```bash
-pip3 install  http://download.3divi.com/facesdk/archives/artifacts/wl/windows/face_sdk-1.0.0-py3-none-any.whl
+pip3 install http://download.3divi.com/facesdk/archives/artifacts/wl/windows/face_sdk-1.0.0-py3-none-any.whl
 ```
 For Linux:
 ```bash
 pip3 install  http://download.3divi.com/facesdk/archives/artifacts/wl/linux/face_sdk-1.0.0-py3-none-any.whl
 ```
 
-### Build Java API
+### Build Java API Sample
 If you want to use Java API, you should call build script from **Build C++** step with path to your JDK installation. For example, on Linux there should be command  
 ```bash
-source scripts/linux_x86_64/build_sdk.sh  /usr/lib/jvm/java-8-openjdk-amd64   
+cd open-source-face-sdk/sdk
+./scripts/linux_x86_64/build_sdk.sh  /usr/lib/jvm/java-8-openjdk-amd64   
 ```
-After that, go to _sdk/samples/java_ and make there _bin_ directory. Then, you can build Java API sample with the next commands
+After that, go to _sdk/samples/java_ and make there _bin_ directory. Then, you can build and run Java API sample with the next commands
 ```bash
 javac -sourcepath ../../src/java_api/src/ -d bin com/face_detector_demo/face_detector_demo.java 
 ```
@@ -224,13 +225,21 @@ For Windows
     .\scripts\windows\create_csharp_demo.bat
     ```
 * This script builds `face` demo by default. To build `body` or `estimator` demo, just call the script with corresponding argument.
+    ```bash
+    .\scripts\windows\create_csharp_demo.bat body
+    .\scripts\windows\create_csharp_demo.bat estimator
+    ```
 
 For Linux
-* In _sdk_ folder run following cmd command to build csharp_face_demo for Windows
+* In _sdk_ folder run following cmd command to build csharp_face_demo for Linux
     ```bash
     ./scripts/linux_x86_64/create_csharp_demo.sh
     ```
 * This script builds `face` demo by default. To build `body` or `estimator` demo, just call the script with corresponding argument.
+    ```bash
+    ./scripts/linux_x86_64/create_csharp_demo.sh body
+    ./scripts/linux_x86_64/create_csharp_demo.sh estimator
+    ```
 
 ## OpenMIDAS
 

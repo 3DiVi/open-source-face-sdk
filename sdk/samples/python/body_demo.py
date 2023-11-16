@@ -32,9 +32,9 @@ bone_map = [
 
 
 def help_message():
-    message = f"usage: {sys.argv[0]} [--mode detection | pose| reidentification] " \
-              " [--input_image <path to image>]" \
-              " [--sdk_path ..]" \
+    message = f"usage: {sys.argv[0]} [--mode detection | pose| reidentification] "\
+              " [--input_image <path to image>]"\
+              " [--sdk_path ..]"\
               " [--output <yes/no>]"
     print(message)
 

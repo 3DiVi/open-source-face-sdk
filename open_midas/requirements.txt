@@ -11,3 +11,4 @@ scikit-learn==1.2.0
 networkx==2.8.4
 opencv-python==4.7.0.68
 catboost==1.2
+jupyter==1.0.0

@@ -19,7 +19,7 @@ See the list of [available models](docs/user_manual.md#available-models).
 
 ## Open MIDAS
 
-Beside SDK this repository provides Open Model Improvement and Domain Adaptation Scripts. This toolkit contains the set of techniques and pipelines for models retraining and generalization improvement. 
+Beside SDK this repository provides Open Model Improvement and Domain Adaptation Scripts. This toolkit contains the set of techniques and pipelines for models retraining and generalization improvement.
 
 ## Getting Started 
 * Learn how to [install the library](docs/getting_started.md)

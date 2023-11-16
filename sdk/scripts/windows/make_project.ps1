@@ -76,7 +76,7 @@ if (Test-Path -Path "$source_3rdparty\build") {
     del models.zip
 
     $CMAKE_INSTALL_PREFIX = pwd
-    $CMAKE_INSTALL_PREFIX = "$CMAKE_INSTALL_PREFIX\build\make_install"
+    $CMAKE_INSTALL_PREFIX = "$CMAKE_INSTALL_PREFIX\build\make-install"
     cd build
     cmake -DBUILD_SHARED=ON -DWITH_SSE=ON -DCMAKE_BUILD_TYPE=Release -DWITH_SAMPLES=ON -DWITH_JAVA="$WITH_JAVA" -DJAVA_HOME="$JAVA_HOME" -DCMAKE_INSTALL_PREFIX="$CMAKE_INSTALL_PREFIX" ..
 }

@@ -59,7 +59,7 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 
 * С++ (Windows): 
 ```bash
-./face_demo.exe --sdk_path .. --mode detection --input_image ../../../test_images/face.jpg  
+.\face_demo.exe --sdk_path .. --mode detection --input_image ../../../test_images/face.jpg  
 ```
 * С++ (Linux): 
 ```bash
@@ -70,8 +70,12 @@ LD_LIBRARY_PATH=../lib ./face_demo --sdk_path .. --mode landmarks --input_image 
 ```bash
 python3 face_demo.py --sdk_path .. --mode recognition --input_image ../../../test_images/facerec_1.jpg --input_image2 ../../../test_images/facerec_2.jpeg
 ```
+* С# (Windows): 
+```bash
+.\csharp_face_demo.exe --sdk_path .. --input_image ../../../test_images/facerec_1.jpg --mode detection
+```
 
-* С#: 
+* С# (Linux): 
 ```bash
 ./csharp_face_demo --sdk_path .. --input_image ../../../test_images/facerec_1.jpg --mode detection
 ```
@@ -104,8 +108,11 @@ LD_LIBRARY_PATH=../lib ./estimator_demo --sdk_path .. --mode age --input_image .
 ```bash
 python3 estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_images/mask_glasses.jpeg
 ```
-
-* C# 
+* C# (Windows):
+```bash
+.\csharp_estimator_demo.exe  --sdk_path .. --mode all --input_image ../../../test_images/face_attributes.jpg
+```
+* C# (Linux):
 ```bash
 ./csharp_estimator_demo  --sdk_path .. --mode all --input_image ../../../test_images/face_attributes.jpg
 ```
@@ -141,7 +148,12 @@ LD_LIBRARY_PATH=../lib ./body_demo --sdk_path .. --mode detection --input_image 
 ```bash
 python3 body_demo.py --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
-* C# 
+* C# (Widows):
+```bash
+.\csharp_body_demo.exe --sdk_path .. --input_image ../../../test_images/body.jpg --mode detection
+```
+
+* C# (Linux):
 ```bash
 ./csharp_body_demo --sdk_path .. --input_image ../../../test_images/body.jpg --mode detection
 ```
@@ -166,11 +178,18 @@ java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_imag
 There JavaScript sample which shows how to use face detector in browser:
 
 * Copy _data/models/face_detector_ folder to _src/javascript_api_ directory.
-* Start any web-server in _src/javascript_api_. For example, run following command in folder:
-    ```bash
-    python3 -m http.server
-    ```
-* Go to localhost:8080 in your browser
+* Start any web-server in _src/javascript_api_. For example, run following command in folder.
+    * Linux
+      ```bash
+      python3 -m http.server
+      ```
+    * Windows
+      ```bash
+      python -m http.server
+      ```
+* Go to localhost:8000 in your browser
+* Click on face_detection.html
+* On this html page you can open some local image from disk (from _sdk/test_images_ for example). There should be vizualised image with face bboxes. 
 # OpenMIDAS
 
 Large companies have large computing power, that allows them to set up many experiments. In this way,

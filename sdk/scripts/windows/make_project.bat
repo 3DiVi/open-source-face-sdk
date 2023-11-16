@@ -55,7 +55,7 @@ if exist 3rdparty\build (
     del models.zip
 
     cd build
-    set "CMAKE_INSTALL_PREFIX=%cd%\build\make_install"
+    set "CMAKE_INSTALL_PREFIX=%cd%\build\make-install"
     echo %CMAKE_INSTALL_PREFIX%
     cmake -DBUILD_SHARED=ON -DWITH_SSE=ON -DCMAKE_BUILD_TYPE=Release -DWITH_SAMPLES=ON -DWITH_JAVA=%WITH_JAVA% -DJAVA_HOME=%JAVA_HOME% -DCMAKE_INSTALL_PREFIX=%CMAKE_INSTALL_PREFIX% ..
 )

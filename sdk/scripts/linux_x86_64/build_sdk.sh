@@ -13,8 +13,7 @@ then
 else
     WITH_JAVA="ON"
 fi
-
-mkdir -p 3rdparty/build && cd 3rdparty/build
+rm -rf 3rdparty/build && mkdir -p 3rdparty/build && cd 3rdparty/build
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.4.0/onnxruntime-linux-x64-1.4.0.tgz
 tar -xvf onnxruntime-linux-x64-1.4.0.tgz && mv onnxruntime-linux-x64-1.4.0 onnxruntime
 
@@ -37,12 +36,11 @@ else
     wget https://download.3divi.com/facesdk/archives/artifacts/models/models.zip
 fi
 
-unzip models.zip -d data/models
+rm -rf data/models/* && unzip models.zip -d data/models
 
 rm models.zip
 
-mkdir build
-cd build
+rm -rf build && mkdir build && cd build
 
 export BUILD_DIR=`pwd`
 
