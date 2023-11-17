@@ -8,6 +8,16 @@ if %JAVA_HOME%.==. (
     set WITH_JAVA="ON"
 )
 
+if exist build (
+    rmdir build /s /q
+)
+
+if exist 3rdparty\build (
+    rmdir 3rdparty\build /s /q
+)
+
+del data\models\ /s /q
+
 @REM copy nlohmann
 if exist 3rdparty\nlohmann ( 
     mkdir build\install\3rdparty\include\nlohmann

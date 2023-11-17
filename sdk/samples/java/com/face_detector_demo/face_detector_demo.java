@@ -36,6 +36,11 @@ public class face_detector_demo {
 		Context modelCtx = service.createContext();
 		modelCtx.getOrInsertByKey("unit_type").setString("FACE_DETECTOR");
 
+		if (System.getProperty("os.name").contains("Windows"))	// on Windows library_path must be manually specified
+	    {
+	        modelCtx.getOrInsertByKey("ONNXRuntime").getOrInsertByKey("library_path").setString("../bin");
+	    }
+
 		// create processing block
 		ProcessingBlock detector = service.createProcessingBlock(modelCtx);
 

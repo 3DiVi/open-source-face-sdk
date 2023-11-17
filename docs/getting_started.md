@@ -216,6 +216,11 @@ javac -sourcepath ../../src/java_api/src/ -d bin com/face_detector_demo/face_det
 ```bash
 LD_LIBRARY_PATH=../../build/make-install/lib java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install
 ```
+Windows 
+Call from _sdk/build/make-install/bin_
+```bash
+java -classpath ../../../samples/java/bin com.face_detector_demo.face_detector_demo ../../../test_images/face.jpg ../
+```
 
 ### Build C#
 If you successfully built C++ API on previous steps, you can use builded library to work with C# API.  

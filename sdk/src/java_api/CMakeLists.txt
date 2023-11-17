@@ -18,6 +18,8 @@ target_link_libraries(${name}
 	open_source_sdk
 )
 
-
-install(TARGETS ${name} DESTINATION lib)
-
+if(WIN32)
+	install(TARGETS ${name} DESTINATION bin)
+else()
+	install(TARGETS ${name} DESTINATION lib)
+endif()

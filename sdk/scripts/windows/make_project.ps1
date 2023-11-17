@@ -42,6 +42,16 @@ function get_3rd_by_url {
     Write-Output "Done $name."
 }
 
+if (Test-Path -Path ".\build\") {
+    rm ".\build\" -r -Force
+}
+
+if (Test-Path -Path "$source_3rdparty\build") {
+    rm "$source_3rdparty\build" -r -Force
+}
+
+rm .\data\models\* -r
+
 if (Test-Path -Path "$source_3rdparty\nlohmann") {
     Write-Output 'Load nlohmann...'
     try {
