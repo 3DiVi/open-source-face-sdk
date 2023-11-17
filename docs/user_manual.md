@@ -65,8 +65,12 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 ```bash
 LD_LIBRARY_PATH=../lib ./face_demo --sdk_path .. --mode landmarks --input_image ../../../test_images/landmarks.jpeg
 ```
+* Python (Windows): 
+```bash
+python face_demo.py --sdk_path .. --mode recognition --input_image ../../../test_images/facerec_1.jpg --input_image2 ../../../test_images/facerec_2.jpeg
+```
 
-* Python: 
+* Python (Linux): 
 ```bash
 python3 face_demo.py --sdk_path .. --mode recognition --input_image ../../../test_images/facerec_1.jpg --input_image2 ../../../test_images/facerec_2.jpeg
 ```
@@ -103,8 +107,11 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 ```bash
 LD_LIBRARY_PATH=../lib ./estimator_demo --sdk_path .. --mode age --input_image ../../../test_images/age_gender.jpg
 ```
-
-* Python: 
+* Python (Windows): 
+```bash
+python estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_images/mask_glasses.jpeg
+```
+* Python (Linux): 
 ```bash
 python3 estimator_demo.py --sdk_path .. --mode mask --input_image ../../../test_images/mask_glasses.jpeg
 ```
@@ -143,8 +150,12 @@ Run the following commands from the _build/make-install/bin_ directory to execut
 ```bash
 LD_LIBRARY_PATH=../lib ./body_demo --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
+* Python (Windows): 
+```bash
+python body_demo.py --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
+```
 
-* Python: 
+* Python (Linux): 
 ```bash
 python3 body_demo.py --sdk_path .. --mode detection --input_image ../../../test_images/body.jpg
 ```
