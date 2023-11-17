@@ -17,6 +17,6 @@ dotnet add package OpenCvSharp4.runtime.win
 dotnet add package CommandLineParser
 dotnet publish --configuration Release --output bin\publish /p:AllowUnsafeBlocks=true
 cd ..
-xcopy /isvy "csharp_%DEMO_NAME%_demo\bin\publish" ".\make_install\bin\"
+xcopy /isvy "csharp_%DEMO_NAME%_demo\bin\publish" ".\make-install\bin\"
 
 @echo Done!
