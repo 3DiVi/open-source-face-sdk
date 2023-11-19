@@ -272,3 +272,4 @@ Clone this repo and run following command from _open_midas_ folder to install re
 ```bash
 pip3 install -r requirements.txt
 ```
+Also, you can check [screencast](https://drive.google.com/file/d/15fACIYi8FAL9_qS01yST1wR_HNRO3qDU/view?usp=sharing) describin OpenMIDAS installation and sample notebook execution.
