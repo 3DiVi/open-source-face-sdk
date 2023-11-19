@@ -24,6 +24,7 @@ Beside SDK this repository provides Open Model Improvement and Domain Adaptation
 ## Getting Started 
 * Learn how to [install the library](docs/getting_started.md)
 * Read the [user manual](docs/user_manual.md)
+* Check out [screencasts](https://drive.google.com/drive/folders/1usrXjxNVQqUQcSoM3bnnyd1ZB9HSJb7u?usp=sharing) describing how to isntall library and run samples.
 
 ## Contributions
 

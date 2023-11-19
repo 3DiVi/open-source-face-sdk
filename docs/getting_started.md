@@ -4,6 +4,9 @@ Minimal system requirements are:
 * RAM - 8Gb
 * Operating System -  Windows 7, 10-11/Ubuntu 16-22/ASTRA linux COMMON edition
 
+Specifically for Open MIDAS:
+- It's highly recommended to run examples on GPU
+
 # Building and Installation
 You can use two parts of library - SDK and OpenMIDAS - separately, so there are  different prerequisites and installation steps for them.
 ## SDK
@@ -163,13 +166,18 @@ rm -f packages-microsoft-prod.deb
 ```
 </details>
 
+### Install SDK and run samples screencasts
+[Windows](https://drive.google.com/file/d/1qmD-V56dMv59ni1_ms13XEvJDvZefx0F/view?usp=sharing)  
+[Linux](https://drive.google.com/file/d/11r8wn4hZJBMMFnDk-8lR5WqeWJfNr_ac/view?usp=sharing)
 ### Build C++
+
 Clone this repo 
 ```bash
 git clone https://github.com/3DiVi/open-source-face-sdk
 ```
 and follow instructions for your platform.  
 For Windows:
+  * We HIGHLY recommend to use Developer PowerShell for VS on Windows 
   * Set PowerShell policy to Unrestricted. PowerShell policy should be set to Unrestricted to download SDK dependencies and configure SDK build.  
     1. Open PowerShell as Administrator
     2. Enter the command `Set-ExecutionPolicy Unrestricted`
@@ -216,8 +224,16 @@ javac -sourcepath ../../src/java_api/src/ -d bin com/face_detector_demo/face_det
 ```bash
 LD_LIBRARY_PATH=../../build/make-install/lib java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install
 ```
-Windows 
-Call from _sdk/build/make-install/bin_
+Example of these steps for Windows:
+```bash
+cd open-source-face-sdk\sdk
+.\scripts\windows\make_project.ps1 "C:\Program Files\Java\jdk-1.8"   
+```
+After that, go to _sdk/samples/java_ and make there _bin_ directory. Then, you can build and run Java API sample with the next commands
+```bash
+javac -sourcepath ../../src/java_api/src/ -d bin com/face_detector_demo/face_detector_demo.java 
+```
+Call Java sample from _sdk/build/make-install/bin_
 ```bash
 java -classpath ../../../samples/java/bin com.face_detector_demo.face_detector_demo ../../../test_images/face.jpg ../
 ```

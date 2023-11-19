@@ -180,7 +180,11 @@ Also there is minimal sample for Java with only face detector block.
 * `--input_image` - required, path to the input image file
 * `--sdk_path` - optional, the path to the installed SDK directory, default value is ".." to launch from the default location _build/make-install/bin_
 
- You can run it from _sdk/samples/java_ with command  
+ You can run it from _sdk/samples/java_ with command for Linux 
+```bash
+LD_LIBRARY_PATH=../../build/make-install/lib java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install
+```
+and from _sdk/build/make-install/bin_ for Windows 
 ```bash
 java -classpath ./bin com.face_detector_demo.face_detector_demo  ../../test_images/face.jpg ../../build/make-install/
 ```
