@@ -12,3 +12,4 @@ networkx==2.8.4
 opencv-python==4.7.0.68
 catboost==1.2
 jupyter==1.0.0
+prettytable==3.9.0
